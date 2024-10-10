@@ -78,7 +78,7 @@ def update_graph(type):
         return {"data":[go.Bar(x=p_bar["detected_state"],y =p_bar["count"] )],
                 'layout':go.Layout(title = "State Total Count") }
     else:
-        filtered_patients = patients[patients["current_status"] == value]
+        filtered_patients = patients[patients["current_status"] == type]
         p = filtered_patients["detected_state"].value_counts().reset_index()
         return {"data": [go.Bar(x=p["detected_state"], y=p["count"])],
                 'layout': go.Layout(title="State Total Count")}
